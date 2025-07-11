@@ -37,7 +37,7 @@ const Cocktails = () => {
 
   return (
     <div id='cocktails' className="font-face relative min-h-screen flex items-center justify-center pt-40  text-white">
-      <section className="absolute left-30 max-w-4xl">
+      <section className="absolute md:left-30 left-20 md:top-auto top-0 max-w-4xl">
         <p className="text-xl font-semibold mb-6">Most Popular Cocktails:</p>
         <ul className="space-y-6">
           {cocktailLists.map((element, index) => (
@@ -53,7 +53,7 @@ const Cocktails = () => {
           ))}
         </ul>
       </section>
-      <section className="absolute right-30 max-w-4xl ">
+      <section className="absolute right-30 bottom-0 max-w-4xl ">
         <p className="text-xl font-semibold mb-6">Most Loved Cocktails:</p>
         <ul className="space-y-6">
           {mockTailLists.map((element, index) => (
@@ -72,8 +72,9 @@ const Cocktails = () => {
 
 
 {/* leaves */}
-          <img ref={leftLeafReff} className='absolute -bottom-45 -left-30 -z-10' src="/images/hero-left-leaf.png" alt="" />
-          <img ref={rightLeafReff} className='absolute bottom-0 right-0 -z-100' src="/images/hero-right-leaf.png" alt="" />
+          <img ref={leftLeafReff} className='absolute md:w-auto w-20 md:-bottom-45 -bottom-20 -left-30 md:-left-30 md:-z-10 -z-10' src="/images/hero-left-leaf.png" alt="" />
+
+          <img ref={rightLeafReff} className='absolute md:w-auto w-20 md:bottom-0 bottom-30 right-0 md:-z-100 -z-1' src="/images/hero-right-leaf.png" alt="" />
 
       <img
       className="absolute top-0 left-0 w-full h-full object-cover -z-10 pointer-events-none"

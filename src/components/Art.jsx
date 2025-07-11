@@ -57,6 +57,32 @@ const Art = () => {
       },
     });
 
+
+// Mobile-specific GSAP (under 768px)
+if (window.innerWidth < 768) {
+  const mobileTL = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#art",
+      start: "top top",
+      end: "bottom top",
+      scrub: 1,
+      // markers: true,
+    },
+  });
+
+  mobileTL
+    .to(maskRef.current, {
+      scale: 1.1,
+      duration: 1,
+      ease: "power1.inOut",
+    })
+    .to(insiderRef.current, {
+      scale: 1.2,
+      duration: 1,
+      ease: "circ.out",
+    });
+}
+
   }, []);
 
   return (
@@ -94,12 +120,12 @@ const Art = () => {
             ref={insiderRef}
               src="/images/underGlass-img.jpg"
               alt="masked content"
-              className=" w-full h-full object-cover rounded-4xl border-2"
+              className=" w-full h-full object-cover rounded-4xl border-2 absolute top-0"
             />
           </div>
 
           {/* Right list */}
-          <ul className="space-y-4 will-fade">
+          <ul className="space-y-4 will-fade opacity-0 md:opacity-100 ">
             {featureLists.map((item, index) => (
               <li key={index} className="flex items-center gap-2">
                 <img src="/images/check.png" alt="check" />

@@ -25,7 +25,7 @@ const About = () => {
 
 
   return (
-    <div id="about" className="archivo-font w-full flex flex-col items-center justify-center py-30 px-4 bg-black text-white">
+    <div id="about" className="md:archivo-font w-full flex flex-col items-center justify-center py-30 px-4 bg-black text-white">
       {/* Content Container */}
       <div className="max-w-[1280px] w-full flex flex-col gap-10">
         <div className="flex flex-col md:flex-row items-start justify-between gap-10">
@@ -33,7 +33,7 @@ const About = () => {
         
           <div className="flex items-start justify-center flex-col max-w-[500px] gap-4">
           <button className="font-medium border-2 px-5 py-2 rounded-full bg-white text-black">Best Cocktails</button>
-          <p ref={detailRef} className="text-5xl text-gray-300">Where every detail matters -from muddle to garnish</p>
+          <p ref={detailRef} className="md:text-5xl text-3xl text-gray-300">Where every detail matters -from muddle to garnish</p>
           </div>
 
           {/* Right: Description */}
@@ -49,7 +49,7 @@ const About = () => {
         </div>
 
         {/* Images Section */}
-<div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-5 bg-black">
+<div className="md:grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-5 bg-black flex flex-col items-center flex-wrap">
   <div className="relative h-72 rounded-xl overflow-hidden">
     <img src="/images/abt1.png" className="w-full h-full object-cover" alt="img1" />
     <img
@@ -77,7 +77,7 @@ const About = () => {
     />
   </div>
 
-  <div className="col-span-full grid grid-cols-12 gap-5">
+  <div className="col-span-full md:grid grid-cols-12 gap-5 flex flex-col items-center justify-center">
     <div className="relative col-span-8 h-72 rounded-xl overflow-hidden">
       <img src="/images/abt3.png" className="w-full h-full object-cover" alt="img4" />
       <img

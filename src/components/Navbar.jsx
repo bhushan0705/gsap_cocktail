@@ -23,8 +23,8 @@ const Navbar = () => {
       })
 
   return (
-    <div  ref={navRef} className='yz-font flex justify-between items-center p-5 fixed top-0 w-full z-20 '>
-      <div className='flex items-center justify-center gap-2'>
+    <div  ref={navRef} className='yz-font flex flex-wrap justify-center md:justify-between items-center p-5 fixed top-0 w-full z-20 md:gap-0 gap-3'>
+      <div className='flex items-center justify-center gap-2 '>
       <img src='/images/logo.png' alt="logo" />
     <p>Velvet Pour</p>
       </div>

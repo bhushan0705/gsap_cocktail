@@ -22,7 +22,7 @@ function App() {
       <Cocktails></Cocktails>
       </div>
       <About></About>
-      <Art></Art>
+      {/* <Art></Art> */}
       <Types></Types>
       <Contact></Contact>
     </main>

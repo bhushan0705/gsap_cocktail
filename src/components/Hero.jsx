@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import SplitType from "split-type";
@@ -123,22 +123,22 @@ const Hero = () => {
 
         {/* Main Heading */}
         <div className="flex items-center justify-center">
-          <p ref={textRef} className="logoTxt text-8xl font-extrabold text-white relative top-25 md:text-[15vw]">MOJITO</p>
+          <p ref={textRef} className="logoTxt text-7xl  font-extrabold text-white relative top-40 md:top-25 md:text-[15vw]">MOJITO</p>
         </div>
 
         {/* Text & Description */}
-        <div className="flex items-center justify-between relative top-50 px-10">
-          <div>
+        <div className="flex items-center justify-between md:flex-row md:gap-0 gap-50 flex-col relative top-50 px-10">
+          <div >
             <p className="text-white">Cool. Crisp. Classic.</p>
             <p
               ref={descRef}
-              className="text-yellow-100 font-bold text-4xl"
+              className="text-yellow-100 font-bold text-4xl "
             >
               Sip the Spirit of Summer
             </p>
           </div>
-          <div className="libertinus-font flex w-100 flex-col max-w-[500px]">
-            <p ref={lineRef} className="text-white">
+          <div className="libertinus-font w-[200px] flex md:items-start items-center justify-center md:w-100 flex-col max-w-[500px] ">
+            <p ref={lineRef} className="text-white ">
               Every cocktail on our menu is a blend of premium ingredients,
               creative flair, and timeless recipes — designed to delight your
               senses.
@@ -154,18 +154,18 @@ const Hero = () => {
       alt="noise background"
     />
         {/* Leaves */}
-        <img
-          ref={leftLeafRef}
-          className="absolute top-10 -z-10"
-          src="/images/hero-left-leaf.png"
-          alt="left leaf"
-        />
-        <img
-          ref={rightLeafRef}
-          className="absolute bottom-[-20px] right-0 z-[-1] h-100"
-          src="/images/hero-right-leaf.png"
-          alt="right leaf"
-        />
+<img
+  ref={leftLeafRef}
+  className="absolute top-70 md:top-10 -z-10 w-20 md:w-auto"
+  src="/images/hero-left-leaf.png"
+  alt="left leaf"
+/>
+<img
+  ref={rightLeafRef}
+  className="absolute md:bottom-[-50px] bottom-[40px] right-0 z-[-1] h-40 md:h-auto"
+  src="/images/hero-right-leaf.png"
+  alt="right leaf"
+/>
       </div>
     </>
   );
