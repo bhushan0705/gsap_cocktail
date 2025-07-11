@@ -40,7 +40,11 @@ const Types = () => {
         { scale: 0.8, x: -200, opacity: 0 },
         { scale: 1, x: 0, opacity: 1 }
       )
-      .fromTo(descriptionRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0 });
+      .fromTo(
+        descriptionRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0 }
+      );
   }, [currentImage]);
 
   return (
@@ -66,16 +70,21 @@ const Types = () => {
 
       {/* Main Content Area */}
       <div className="h-auto grid grid-cols-1 md:grid-cols-3 justify-between gap-10 py-10 px-6">
-
         {/* LEFT COLUMN – Desktop */}
         <div className="hidden md:flex flex-col items-center justify-between gap-10">
-          <div onClick={preImg} className="flex flex-col items-start justify-center">
+          <div
+            onClick={preImg}
+            className="flex flex-col items-start justify-center"
+          >
             <p className="text-xl font-bold hover:text-amber-200">Pre Image</p>
             <img src="/images/right-arrow.png" alt="" />
           </div>
           <div className="flex flex-col items-start justify-center gap-2">
             <p>Recipe for:</p>
-            <p ref={recipeRef} className="font-bold text-3xl text-amber-200 w-[100px]">
+            <p
+              ref={recipeRef}
+              className="font-bold text-3xl text-amber-200 w-[100px]"
+            >
               {sliderLists[currentImage].name}
             </p>
           </div>
@@ -93,13 +102,23 @@ const Types = () => {
 
         {/* RIGHT COLUMN – Desktop */}
         <div className="hidden md:flex flex-col items-center justify-between gap-10">
-          <div onClick={nextImg} className="flex flex-col items-end justify-center">
+          <div
+            onClick={nextImg}
+            className="flex flex-col items-end justify-center"
+          >
             <p className="text-xl font-bold hover:text-amber-200">Next Image</p>
             <img src="/images/left-arrow.png" alt="" />
           </div>
-          <div ref={descriptionRef} className="w-[400px] flex flex-col items-start justify-center">
-            <p className="text-3xl font-bold mb-6">{sliderLists[currentImage].title}</p>
-            <p className="libertinus-font">{sliderLists[currentImage].description}</p>
+          <div
+            ref={descriptionRef}
+            className="w-[400px] flex flex-col items-start justify-center"
+          >
+            <p className="text-3xl font-bold mb-6">
+              {sliderLists[currentImage].title}
+            </p>
+            <p className="libertinus-font">
+              {sliderLists[currentImage].description}
+            </p>
           </div>
         </div>
 
@@ -108,11 +127,15 @@ const Types = () => {
           {/* Pre + Next Buttons in a Row */}
           <div className="w-full flex justify-between px-2">
             <div onClick={preImg} className="flex flex-col items-start">
-              <p className="text-xl font-bold hover:text-amber-200">Pre Image</p>
+              <p className="text-xl font-bold hover:text-amber-200">
+                Pre Image
+              </p>
               <img src="/images/right-arrow.png" alt="" />
             </div>
             <div onClick={nextImg} className="flex flex-col items-end">
-              <p className="text-xl font-bold hover:text-amber-200">Next Image</p>
+              <p className="text-xl font-bold hover:text-amber-200">
+                Next Image
+              </p>
               <img src="/images/left-arrow.png" alt="" />
             </div>
           </div>
@@ -130,15 +153,25 @@ const Types = () => {
           {/* Recipe for */}
           <div className="flex flex-col items-start gap-2 w-full px-4">
             <p>Recipe for:</p>
-            <p ref={recipeRef} className="font-bold text-3xl text-amber-200 w-[100px]">
+            <p
+              ref={recipeRef}
+              className="font-bold text-3xl text-amber-200 w-[100px]"
+            >
               {sliderLists[currentImage].name}
             </p>
           </div>
 
           {/* Description */}
-          <div ref={descriptionRef} className="flex flex-col items-start justify-center px-4">
-            <p className="text-3xl font-bold mb-4">{sliderLists[currentImage].title}</p>
-            <p className="libertinus-font">{sliderLists[currentImage].description}</p>
+          <div
+            ref={descriptionRef}
+            className="flex flex-col items-start justify-center px-4"
+          >
+            <p className="text-3xl font-bold mb-4">
+              {sliderLists[currentImage].title}
+            </p>
+            <p className="libertinus-font">
+              {sliderLists[currentImage].description}
+            </p>
           </div>
         </div>
       </div>

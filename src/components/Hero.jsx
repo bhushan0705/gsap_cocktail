@@ -20,16 +20,14 @@ const Hero = () => {
     const lineSplit = new SplitType(lineRef.current, { types: "lines" });
     const descSplit = new SplitType(descRef.current, { types: "lines" });
 
-
-     split.chars.forEach((char) => {
+    split.chars.forEach((char) => {
       gsap.set(char, {
-      backgroundImage: "linear-gradient(to top,#899990, #ffffff)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      display: "inline-block",
+        backgroundImage: "linear-gradient(to top,#899990, #ffffff)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        display: "inline-block",
       });
     });
-
 
     gsap.from(split.chars, {
       duration: 1,
@@ -102,38 +100,37 @@ const Hero = () => {
       scrub: true,
       // markers: true,
     });
-
-
   }, []);
 
   return (
     <>
       {/* Pinned Video Section */}
-        <video
-          ref={videoRef}
-          id="video-wrapper"
-          muted
-          playsInline
-          preload="auto"
-          className=" absolute w-full h-[80%] bottom-0 -z-10 "
-          src="/videos/output.mp4" 
-        />
+      <video
+        ref={videoRef}
+        id="video-wrapper"
+        muted
+        playsInline
+        preload="auto"
+        className=" absolute w-full h-[80%] bottom-0 -z-10 "
+        src="/videos/output.mp4"
+      />
       {/* Hero Content */}
       <div id="hero" className="font-face h-[100vh]  overflow-hidden relative">
-
         {/* Main Heading */}
         <div className="flex items-center justify-center">
-          <p ref={textRef} className="logoTxt text-7xl  font-extrabold text-white relative top-40 md:top-25 md:text-[15vw]">MOJITO</p>
+          <p
+            ref={textRef}
+            className="logoTxt text-7xl  font-extrabold text-white relative top-40 md:top-25 md:text-[15vw]"
+          >
+            MOJITO
+          </p>
         </div>
 
         {/* Text & Description */}
         <div className="flex items-center justify-between md:flex-row md:gap-0 gap-50 flex-col relative top-50 px-10">
-          <div >
+          <div>
             <p className="text-white">Cool. Crisp. Classic.</p>
-            <p
-              ref={descRef}
-              className="text-yellow-100 font-bold text-4xl "
-            >
+            <p ref={descRef} className="text-yellow-100 font-bold text-4xl ">
               Sip the Spirit of Summer
             </p>
           </div>
@@ -147,25 +144,24 @@ const Hero = () => {
           </div>
         </div>
 
-
-    <img
-      className="absolute top-0 left-0 w-full h-full object-cover -z-10 pointer-events-none"
-      src="/images/noise.png"
-      alt="noise background"
-    />
+        <img
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10 pointer-events-none"
+          src="/images/noise.png"
+          alt="noise background"
+        />
         {/* Leaves */}
-<img
-  ref={leftLeafRef}
-  className="absolute top-70 md:top-10 -z-10 w-20 md:w-auto"
-  src="/images/hero-left-leaf.png"
-  alt="left leaf"
-/>
-<img
-  ref={rightLeafRef}
-  className="absolute md:bottom-[-50px] bottom-[40px] right-0 z-[-1] h-40 md:h-auto"
-  src="/images/hero-right-leaf.png"
-  alt="right leaf"
-/>
+        <img
+          ref={leftLeafRef}
+          className="absolute top-70 md:top-10 -z-10 w-20 md:w-auto"
+          src="/images/hero-left-leaf.png"
+          alt="left leaf"
+        />
+        <img
+          ref={rightLeafRef}
+          className="absolute md:bottom-[-50px] bottom-[40px] right-0 z-[-1] h-40 md:h-auto"
+          src="/images/hero-right-leaf.png"
+          alt="right leaf"
+        />
       </div>
     </>
   );
