@@ -36,7 +36,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="yz-font relative px-4 py-70 md:px-10 md:py-20 flex flex-col items-center justify-center gap-10 min-h-[80vh] overflow-hidden"
+      className="yz-font relative mt-100 md:px-10 md:py-20 flex flex-col items-center justify-center gap-10 min-h-[80vh] overflow-hidden"
     >
       {/* leaves */}
       <div>

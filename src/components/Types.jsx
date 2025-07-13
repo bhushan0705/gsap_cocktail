@@ -6,24 +6,26 @@ import gsap from "gsap";
 const Types = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
-  const recipeRef = useRef();
-  const imageChangeRef = useRef();
-  const descriptionRef = useRef();
+  // Refs for Desktop
+  const desktopRecipeRef = useRef();
+  const desktopImageRef = useRef();
+  const desktopDescRef = useRef();
+
+  // Refs for Mobile
+  const mobileRecipeRef = useRef();
+  const mobileImageRef = useRef();
+  const mobileDescRef = useRef();
 
   function preImg() {
-    if (currentImage === 0) {
-      setCurrentImage(sliderLists.length - 1);
-    } else {
-      setCurrentImage(currentImage - 1);
-    }
+    setCurrentImage((prev) =>
+      prev === 0 ? sliderLists.length - 1 : prev - 1
+    );
   }
 
   function nextImg() {
-    if (currentImage === sliderLists.length - 1) {
-      setCurrentImage(0);
-    } else {
-      setCurrentImage(currentImage + 1);
-    }
+    setCurrentImage((prev) =>
+      prev === sliderLists.length - 1 ? 0 : prev + 1
+    );
   }
 
   function handleNavigation(index) {
@@ -31,17 +33,22 @@ const Types = () => {
   }
 
   useGSAP(() => {
-    const imgChangeTl = gsap.timeline({ ease: "power2.inOut" });
+    const tl = gsap.timeline({ ease: "power2.inOut" });
 
-    imgChangeTl
-      .fromTo(recipeRef.current, { opacity: 0, y: -20 }, { opacity: 1, y: 0 })
+    const isDesktop = window.innerWidth >= 768;
+
+    tl.fromTo(
+      isDesktop ? desktopRecipeRef.current : mobileRecipeRef.current,
+      { opacity: 0, y: -20 },
+      { opacity: 1, y: 0 }
+    )
       .fromTo(
-        imageChangeRef.current,
-        { scale: 0.8, x: -200, opacity: 0 },
+        isDesktop ? desktopImageRef.current : mobileImageRef.current,
+        { scale: 0.8, x: -100, opacity: 0 },
         { scale: 1, x: 0, opacity: 1 }
       )
       .fromTo(
-        descriptionRef.current,
+        isDesktop ? desktopDescRef.current : mobileDescRef.current,
         { opacity: 0, y: -20 },
         { opacity: 1, y: 0 }
       );
@@ -82,7 +89,7 @@ const Types = () => {
           <div className="flex flex-col items-start justify-center gap-2">
             <p>Recipe for:</p>
             <p
-              ref={recipeRef}
+              ref={desktopRecipeRef}
               className="font-bold text-3xl text-amber-200 w-[100px]"
             >
               {sliderLists[currentImage].name}
@@ -93,7 +100,7 @@ const Types = () => {
         {/* MIDDLE IMAGE – Desktop Only */}
         <div className="hidden md:flex justify-center">
           <img
-            ref={imageChangeRef}
+            ref={desktopImageRef}
             className="md:h-[350px]"
             src={sliderLists[currentImage].image}
             alt="img"
@@ -110,7 +117,7 @@ const Types = () => {
             <img src="/images/left-arrow.png" alt="" />
           </div>
           <div
-            ref={descriptionRef}
+            ref={desktopDescRef}
             className="w-[400px] flex flex-col items-start justify-center"
           >
             <p className="text-3xl font-bold mb-6">
@@ -122,7 +129,7 @@ const Types = () => {
           </div>
         </div>
 
-        {/* 🟡 MOBILE ONLY SECTION */}
+        {/* MOBILE ONLY SECTION */}
         <div className="flex md:hidden flex-col items-center gap-6">
           {/* Pre + Next Buttons in a Row */}
           <div className="w-full flex justify-between px-2">
@@ -143,8 +150,8 @@ const Types = () => {
           {/* Image */}
           <div className="w-full flex justify-center">
             <img
-              ref={imageChangeRef}
-              className="h-[300px] object-cover w-[80%]"
+              ref={mobileImageRef}
+              className="h-[400px] object-cover w-[80%]"
               src={sliderLists[currentImage].image}
               alt="img"
             />
@@ -154,7 +161,7 @@ const Types = () => {
           <div className="flex flex-col items-start gap-2 w-full px-4">
             <p>Recipe for:</p>
             <p
-              ref={recipeRef}
+              ref={mobileRecipeRef}
               className="font-bold text-3xl text-amber-200 w-[100px]"
             >
               {sliderLists[currentImage].name}
@@ -163,7 +170,7 @@ const Types = () => {
 
           {/* Description */}
           <div
-            ref={descriptionRef}
+            ref={mobileDescRef}
             className="flex flex-col items-start justify-center px-4"
           >
             <p className="text-3xl font-bold mb-4">

@@ -112,7 +112,7 @@ const Art = () => {
               maskSize: "100%",
               transform: "translate(0%, -40%)",
             }}
-            className="md:w-[400px] md:h-[400px] h-[300px] relative masked-img overflow-hidden rounded-4xl border-2 z-0"
+            className="md:w-[400px] md:h-[300px] h-[300px] relative masked-img overflow-hidden rounded-4xl border-2 z-0"
           >
             <img
               ref={insiderRef}
@@ -134,7 +134,7 @@ const Art = () => {
         </div>
 
         {/* Final content reveal */}
-        <div className="masked-container text-center -mt-20">
+        <div className="masked-container text-center -mt-5">
           <div id="masked-content" className="opacity-0 md:px-0 space-y-5">
             <h3 className="text-2xl md:text-5xl font-serif text-white">
               Made with Craft, Poured with Passion
